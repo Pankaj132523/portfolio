@@ -26,8 +26,8 @@ import pptimage from "./assets/ppt-convert.png";
 function App() {
   const portfolioData = {
     name: "Pankaj Sharma",
-    title: "Full-Stack Developer crafting beautiful digital experiences",
-    subtitle: "Open-source enthusiast | WebRTC Explorer | GCP + Docker Dev",
+    title: "Frontend-focused Full Stack Developer crafting modern web experiences",
+    subtitle: "Frontend Engineer | Learning Cloud Architecture | Full-stack Development",
 
     description: [
       "I’m a passionate Full Stack Developer with over 3 years of experience specializing in building robust, scalable web applications using modern technologies like React, Node.js, and MongoDB.",
