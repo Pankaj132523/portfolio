@@ -8,16 +8,24 @@ interface FormData {
   message: string;
 }
 
+interface SocialLink {
+  icon: React.ReactNode;
+  url: string;
+  label: string;
+}
+
 interface ContactProps {
   onSubmit?: (formData: FormData) => void;
   title?: string;
   description?: string;
+  socialLinks?: SocialLink[];
 }
 
 const Contact: React.FC<ContactProps> = ({
   onSubmit,
   title = "What's Next?",
-  description = "Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
+  description = "Although I'm not currently looking for any new opportunities, my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+  socialLinks = []
 }) => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -27,6 +35,8 @@ const Contact: React.FC<ContactProps> = ({
   });
 
   const { elementRef: sectionRef, isVisible: sectionVisible } = useIntersectionObserver();
+
+  const emailLink = socialLinks.find(link => link.label.toLowerCase().includes('email'))?.url || 'mailto:hello@pankajsharma.dev';
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -77,7 +87,7 @@ const Contact: React.FC<ContactProps> = ({
         <div className="space-y-8">
           {/* Simple Contact Button */}
           <a 
-            href="mailto:hello@pankajsharma.dev"
+            href={emailLink}
             className="inline-block px-8 py-4 border-2 border-primary-400 text-primary-400 font-mono font-semibold rounded bg-transparent transition-all duration-300 hover:bg-primary-400/10 hover:-translate-y-1 hover:shadow-glow"
           >
             Say Hello

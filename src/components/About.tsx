@@ -64,7 +64,7 @@ const About: React.FC<AboutProps> = ({
         </div>
 
         {/* Enhanced Skills Section */}
-        <Skills />
+        <Skills skills={skills} />
       </div>
     </section>
   );

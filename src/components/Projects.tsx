@@ -49,6 +49,9 @@ const FeaturedProject: React.FC<{ project: Project; index: number }> = ({ projec
   const { elementRef, isVisible } = useIntersectionObserver();
   const isEven = index % 2 === 0;
 
+  console.log(project.imageAlt);
+  
+
   return (
     <div 
       ref={elementRef as React.RefObject<HTMLDivElement>}
@@ -58,7 +61,7 @@ const FeaturedProject: React.FC<{ project: Project; index: number }> = ({ projec
       <div className={`col-span-12 lg:col-span-7 ${isEven ? 'lg:order-1' : 'lg:order-2'} relative group`}>
         <div className="relative overflow-hidden rounded bg-primary-400/5 border border-primary-400/20">
           <div className="aspect-video bg-gradient-to-br from-primary-400/20 to-accent-cyan/20 flex items-center justify-center">
-            <div className="text-4xl text-primary-400">💻</div>
+            <img src={project.imageAlt} alt={project.imageAlt} className="w-full h-full object-contain" />
           </div>
           <div className="absolute inset-0 bg-dark-900/75 group-hover:bg-dark-900/50 transition-all duration-300"></div>
         </div>

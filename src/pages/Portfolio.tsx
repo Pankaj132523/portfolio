@@ -11,7 +11,7 @@ interface PortfolioData {
   title?: string;
   subtitle?: string;
   description?: string[];
-  skills?: Array<{ icon: string; name: string }>;
+  skills?: Array<{ icon: any; name: string; level?: string; category?: string; }>;
   projects?: Array<{
     title: string;
     description: string;
@@ -21,7 +21,7 @@ interface PortfolioData {
     imageAlt?: string;
   }>;
   socialLinks?: Array<{
-    icon: string;
+    icon: React.ReactNode;
     url: string;
     label: string;
   }>;
@@ -40,6 +40,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data = {}, onContactSubmit }) => 
         name={data.name}
         title={data.title}
         subtitle={data.subtitle}
+        socialLinks={data.socialLinks}
       />
       <About
         description={data.description}
@@ -50,6 +51,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ data = {}, onContactSubmit }) => 
       />
       <Contact
         onSubmit={onContactSubmit}
+        socialLinks={data.socialLinks}
       />
       <Footer
         name={data.name}
