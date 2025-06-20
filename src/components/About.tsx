@@ -2,9 +2,16 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import Skills from './Skills';
 
+interface Skill {
+  icon: React.ComponentType<{ className?: string }>;
+  name: string;
+  level: string;
+  category: string;
+}
+
 interface AboutProps {
   description?: string[];
-  skills?: Array<{ icon: string; name: string }>;
+  skills?: Skill[];
 }
 
 const defaultDescription = [

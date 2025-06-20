@@ -11,7 +11,12 @@ interface PortfolioData {
   title?: string;
   subtitle?: string;
   description?: string[];
-  skills?: Array<{ icon: any; name: string; level?: string; category?: string; }>;
+  skills?: Array<{ 
+    icon: React.ComponentType<{ className?: string }>; 
+    name: string; 
+    level: string; 
+    category: string;
+  }>;
   projects?: Array<{
     title: string;
     description: string;

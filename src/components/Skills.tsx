@@ -23,7 +23,7 @@ interface Skill {
   icon: React.ComponentType<{ className?: string }>;
   name: string;
   level: string;
-  category: 'frontend' | 'backend' | 'database' | 'tools' | 'cloud';
+  category: string;
 }
 
 interface SkillsProps {
@@ -122,13 +122,13 @@ const Skills: React.FC<SkillsProps> = ({ skills = defaultSkills }) => {
     { name: 'Cloud', key: 'cloud', color: 'text-cyan-400' },
   ];
 
-  const groupedSkills = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, Skill[]>);
+  // const groupedSkills = skills.reduce((acc, skill) => {
+  //   if (!acc[skill.category]) {
+  //     acc[skill.category] = [];
+  //   }
+  //   acc[skill.category].push(skill);
+  //   return acc;
+  // }, {} as Record<string, Skill[]>);
 
   return (
     <div 

@@ -170,10 +170,39 @@ function App() {
     ]
   };
 
-  const handleContactSubmit = (formData: any) => {
-    console.log('Contact form submitted:', formData);
-    alert("Thank you for your message! I'll get back to you soon.");
+  const handleContactSubmit = async (formData: any) => {
+    try {
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service_id: 'your_service_id',     // ⬅️ Replace with actual ID
+          template_id: 'your_template_id',   // ⬅️ Replace
+          user_id: 'your_user_id',           // ⬅️ Replace with your EmailJS public key
+          template_params: {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_name: 'Pankaj',
+            reply_to: formData.email,
+          },
+        }),
+      });
+  
+      if (response.ok) {
+        alert("Thank you for your message! I'll get back to you soon.");
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Email sending error:', error);
+      alert('Sorry, there was an error sending your message.');
+    }
   };
+  
 
   return (
     <div className="App">
