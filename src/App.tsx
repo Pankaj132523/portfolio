@@ -30,10 +30,10 @@ function App() {
     subtitle: "Frontend Engineer | Learning Cloud Architecture | Full-stack Development",
 
     description: [
-      "I’m a passionate Full Stack Developer with over 3 years of experience specializing in building robust, scalable web applications using modern technologies like React, Node.js, and MongoDB.",
-      "I’ve contributed to innovative projects such as a WebRTC-based video streaming platform, document sharing via Strapi, and CI/CD-ready frontend deployments using Docker and NGINX.",
+      "I'm a passionate Full Stack Developer with over 3 years of experience specializing in building robust, scalable web applications using modern technologies like React, Node.js, and MongoDB.",
+      "I've contributed to innovative projects such as a WebRTC-based video streaming platform, document sharing via Strapi, and CI/CD-ready frontend deployments using Docker and NGINX.",
       "As a self-driven learner, I actively use tools like ChatGPT and Cursor, and explore GenAI for real-world applications, including cloud-native AI video processing.",
-      "Currently, I’m enhancing my backend knowledge and infrastructure skills by diving deep into Docker, NGINX, and GCP services to build production-grade systems."
+      "Currently, I'm enhancing my backend knowledge and infrastructure skills by diving deep into Docker, NGINX, and GCP services to build production-grade systems."
     ],
     skills: [
       {
@@ -111,6 +111,16 @@ function App() {
     ],
     projects: [
       {
+        title: "PPT to Image Cloud Conversion and real time sharing with attendees with an annotation feature in JioEvents",
+        description:
+          "Google Cloud Function pipeline that converts PPT files into annotated images using GenAI and Python. Integrated with Strapi media uploads for a seamless user experience.",
+        technologies: ["Python", "GenAI", "GCP", "Strapi", "libre office"],
+        liveUrl: "https://jioevents.com",
+        githubUrl: "s",
+        imageAlt: pptimage,
+        featured: true
+      },
+      {
         title: "JioEvents - Live Event Platform ",
         description:
           "Developed a document-sharing and video streaming platform using Strapi, WebRTC, and GCP. Implemented slide annotations and real-time streaming using canvas and FFmpeg pipelines.",
@@ -130,16 +140,7 @@ function App() {
         imageAlt: "Portfolio Website Screenshot",
         featured: false
       },
-      {
-        title: "PPT to Image Cloud Conversion and real time sharing with attendees with an annotation feature in JioEvents",
-        description:
-          "Google Cloud Function pipeline that converts PPT files into annotated images using GenAI and Python. Integrated with Strapi media uploads for a seamless user experience.",
-        technologies: ["Python", "GenAI", "GCP", "Strapi", "libre office"],
-        liveUrl: "https://jioevents.com",
-        githubUrl: "s",
-        imageAlt: pptimage,
-        featured: true
-      },
+     
       {
         title: "Multiplayer Web Game",
         description:

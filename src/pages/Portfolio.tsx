@@ -24,6 +24,7 @@ interface PortfolioData {
     liveUrl?: string;
     githubUrl?: string;
     imageAlt?: string;
+    featured?: boolean;
   }>;
   socialLinks?: Array<{
     icon: React.ReactNode;
@@ -39,11 +40,10 @@ interface PortfolioProps {
 
 const Portfolio: React.FC<PortfolioProps> = ({ data = {}, onContactSubmit }) => {
   return (
-    <div className="font-sans leading-relaxed text-dark-100 bg-dark-900 overflow-x-hidden min-h-screen">
+    <div className="font-sans leading-relaxed text-dark-100  overflow-x-hidden min-h-screen">
       <Navigation />
       <Hero
         name={data.name}
-        title={data.title}
         subtitle={data.subtitle}
         socialLinks={data.socialLinks}
       />

@@ -122,55 +122,47 @@ const Skills: React.FC<SkillsProps> = ({ skills = defaultSkills }) => {
     { name: 'Cloud', key: 'cloud', color: 'text-cyan-400' },
   ];
 
-  // const groupedSkills = skills.reduce((acc, skill) => {
-  //   if (!acc[skill.category]) {
-  //     acc[skill.category] = [];
-  //   }
-  //   acc[skill.category].push(skill);
-  //   return acc;
-  // }, {} as Record<string, Skill[]>);
-
   return (
-    <div 
-      ref={skillsRef as React.RefObject<HTMLDivElement>}
-      className={`opacity-0 translate-y-8 transition-all duration-1000 ${skillsVisible ? 'opacity-100 translate-y-0' : ''}`}
-    >
-      <div className="text-center mb-12">
-        <h3 className="text-2xl font-bold text-dark-100 mb-4">
-          <span className="text-primary-400 font-mono mr-2">&lt;</span>
-          Technologies & Tools
-          <span className="text-primary-400 font-mono ml-2">/&gt;</span>
-        </h3>
+    <section className="py-12" id="technologies">
+      <div 
+        ref={skillsRef as React.RefObject<HTMLDivElement>}
+        className={`opacity-0 translate-y-8 transition-all duration-1000 ${skillsVisible ? 'opacity-100 translate-y-0' : ''}`}
+      >
+        <div className="text-center mb-12">
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-8">
+            Technologies
+          </h3>
+          
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            {categories.map((category) => (
+              <div key={category.key} className="flex items-center gap-2">
+                <div className={`w-3 h-3 rounded-full ${category.color.replace('text-', 'bg-')}`}></div>
+                <span className={`font-mono text-sm ${category.color}`}>{category.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
         
-        <div className="flex flex-wrap justify-center gap-6 mb-8">
-          {categories.map((category) => (
-            <div key={category.key} className="flex items-center gap-2">
-              <div className={`w-3 h-3 rounded-full ${category.color.replace('text-', 'bg-')}`}></div>
-              <span className={`font-mono text-sm ${category.color}`}>{category.name}</span>
-            </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+          {skills.map((skill, index) => (
+            <SkillCard key={`${skill.name}-${index}`} skill={skill} index={index} />
           ))}
         </div>
-      </div>
-      
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-        {skills.map((skill, index) => (
-          <SkillCard key={`${skill.name}-${index}`} skill={skill} index={index} />
-        ))}
-      </div>
-      
-      <div className="mt-12 text-center">
-        <div className="inline-flex items-center gap-3 px-6 py-3 bg-dark-800/30 border border-dark-700 rounded-full">
-          <div className="flex gap-1">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+        
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-dark-800/30 border border-dark-700 rounded-full">
+            <div className="flex gap-1">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+              <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+            </div>
+            <p className="text-dark-400 font-mono text-sm">
+              Always learning & growing my toolkit
+            </p>
           </div>
-          <p className="text-dark-400 font-mono text-sm">
-            Always learning & growing my toolkit
-          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -49,9 +49,6 @@ const FeaturedProject: React.FC<{ project: Project; index: number }> = ({ projec
   const { elementRef, isVisible } = useIntersectionObserver();
   const isEven = index % 2 === 0;
 
-  console.log(project.imageAlt);
-  
-
   return (
     <div 
       ref={elementRef as React.RefObject<HTMLDivElement>}
@@ -63,7 +60,7 @@ const FeaturedProject: React.FC<{ project: Project; index: number }> = ({ projec
           <div className="aspect-video bg-gradient-to-br from-primary-400/20 to-accent-cyan/20 flex items-center justify-center">
             <img src={project.imageAlt} alt={project.imageAlt} className="w-full h-full object-contain" />
           </div>
-          <div className="absolute inset-0 bg-dark-900/75 group-hover:bg-dark-900/50 transition-all duration-300"></div>
+          <div className="absolute inset-0 bg-dark-900/75 group-hover:bg-dark-900/0 transition-all duration-300"></div>
         </div>
       </div>
 
